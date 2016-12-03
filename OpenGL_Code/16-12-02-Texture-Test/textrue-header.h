@@ -1,0 +1,9 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#define GLUT_DISABLE_ATEXIT_HACK
+#include <Windows.h>
+#include <GL/glut.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <Math.h>
