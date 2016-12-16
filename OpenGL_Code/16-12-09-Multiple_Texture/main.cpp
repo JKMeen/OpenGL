@@ -1,13 +1,11 @@
-#include "Header.h"
-
+#define GLUT_DISABLE_ATEXIT_HACK
 #include <Windows.h>
+#include <stdio.h>
 #include <gl/GL.h>
+#include <gl/GLU.h>
 #include <gl/glut.h>
 #include <math.h>
 #include "STBImage.h"
-//#include <gl/glew.h>
-
-
 // void glGenTextures(int n, GLuint *textures)
 // void glBindTexture(GLenum target /*GL_TEXTURE_2D*/, GLuint texture);
 GLuint tex[10]; // 핸들러, 보통 int로 관리
@@ -71,13 +69,13 @@ void SetupTexture(void) {
 
 void drawQuad(void) {
 	glBegin(GL_QUADS);
-	glTexCoord2f(0, 1);
-	glVertex3f(-1, 1, 0);
 	glTexCoord2f(0, 0);
+	glVertex3f(-1, 1, 0);
+	glTexCoord2f(0, 1);
 	glVertex3f(-1, -1, 0);
-	glTexCoord2f(1, 0);
-	glVertex3f(1, -1, 0);
 	glTexCoord2f(1, 1);
+	glVertex3f(1, -1, 0);
+	glTexCoord2f(1, 0);
 	glVertex3f(1, 1, 0);
 	glEnd();
 }
@@ -90,7 +88,7 @@ void myDisplay() {
 	glLoadIdentity();
 	static float angle = 0.0;
 	angle += 0.01;
-	gluLookAt(5*sin(angle), 0, 1, 0, 0, 0, 0, 1, 0);
+	gluLookAt(0, 0, 20, 0, 0, 0, 0, 1, 0);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glColor3f(1, 1, 1);
